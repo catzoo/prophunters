@@ -13,16 +13,16 @@ local function addTaunt(name, snd, pteam, sex, cats, duration)
 	local t = {}
 	t.sound = snd
 	t.categories = cats
-	if type(pteam) == "string" then
-		pteam = pteam:lower()
-		if pteam == "prop" || pteam == "props" then
-			t.team = 3
-		elseif pteam == "hunter" || pteam == "hunters" then
-			t.team = 2
-		end
-	else
-		t.team = tonumber(pteam)
-	end
+	-- if type(pteam) == "string" then
+	-- 	pteam = pteam:lower()
+	-- 	if pteam == "prop" || pteam == "props" then
+	-- 		t.team = 3
+	-- 	elseif pteam == "hunter" || pteam == "hunters" then
+	-- 		t.team = 2
+	-- 	end
+	-- else
+	-- 	t.team = tonumber(pteam)
+	-- end
 	if sex && #sex > 0 then
 		t.sex = sex
 		if sex == "both" || sex == "nil" then
@@ -91,9 +91,10 @@ local function loadTaunts(rootFolder)
 	end
 end
 
-function GM:LoadTaunts()
-	loadTaunts((GM or GAMEMODE).Folder:sub(11) .. "/gamemode/taunts/")
-	loadTaunts("prophunters/taunts/")
-end
+loadTaunts("prophunters/taunts/")
+-- function GM:LoadTaunts()
+-- 	loadTaunts((GM or GAMEMODE).Folder:sub(11) .. "/gamemode/taunts/")
+-- 	loadTaunts("prophunters/taunts/")
+-- end
 
-GM:LoadTaunts()
+-- GM:LoadTaunts()
